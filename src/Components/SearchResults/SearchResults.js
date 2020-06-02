@@ -8,7 +8,7 @@ export default class SearchResults extends React.Component {
             <div className="SearchResults">
                 <h2>Results</h2>
                 {/*TrackList component*/}
-                <TrackList/>
+                <TrackList tracks={this.props.searchResults}/>
             </div>
         );
     }
