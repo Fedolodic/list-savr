@@ -28,6 +28,27 @@ export default class App extends React.Component {
                     album: 'California Sunrise',
                     id: 3
                 }
+            ],
+            playlistName: 'Type your new playlist name here',
+            playlistTracks: [
+                {
+                    name: 'Runaway',
+                    artist: 'Kanye West',
+                    album: 'My Beautiful Dark Twisted Fantasy',
+                    id: 1
+                },
+                {
+                    name: 'Canon in D, P.37',
+                    artist: 'Johann Pachelbel, Orpheus Chamber Orchestra',
+                    album: 'Yellow Lounge',
+                    id: 2
+                },
+                {
+                    name: 'I Gotta Feeling',
+                    artist: 'Black Eyed Peas',
+                    album: 'THE E.N.D. (THE ENERGY NEVER DIES)',
+                    id: 3
+                }
             ]
         };
     }
@@ -43,7 +64,8 @@ export default class App extends React.Component {
                         {/*SearchResults component*/}
                         <SearchResults searchResults={this.state.searchResults}/>
                         {/*Playlist component*/}
-                        <Playlist/>
+                        <Playlist playlistName={this.state.playlistName}
+                                  playlistTracks={this.state.playlistTracks}/>
                     </div>
                 </div>
             </div>
