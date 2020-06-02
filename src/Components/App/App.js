@@ -29,7 +29,7 @@ export default class App extends React.Component {
                     id: 3
                 }
             ],
-            playlistName: 'Type your new playlist name here',
+            playlistName: 'Type Your New Playlist Name',
             playlistTracks: [
                 {
                     name: 'Runaway',
