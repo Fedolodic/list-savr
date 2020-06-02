@@ -35,22 +35,37 @@ export default class App extends React.Component {
                     name: 'Runaway',
                     artist: 'Kanye West',
                     album: 'My Beautiful Dark Twisted Fantasy',
-                    id: 1
+                    id: 4
                 },
                 {
                     name: 'Canon in D, P.37',
                     artist: 'Johann Pachelbel, Orpheus Chamber Orchestra',
                     album: 'Yellow Lounge',
-                    id: 2
+                    id: 5
                 },
                 {
                     name: 'I Gotta Feeling',
                     artist: 'Black Eyed Peas',
                     album: 'THE E.N.D. (THE ENERGY NEVER DIES)',
-                    id: 3
+                    id: 6
                 }
             ]
         };
+
+        this.addTrack = this.addTrack.bind(this);
+    }
+
+    addTrack(track) {
+        let tracks = this.state.playlistTracks
+
+        if (tracks.find(savedTrack => savedTrack.id === track.id)) {
+            return;
+        }
+
+        tracks.push(track);
+        this.setState(
+            {playlistTracks: tracks}
+        );
     }
 
     render() {
@@ -62,7 +77,8 @@ export default class App extends React.Component {
                     <SearchBar/>
                     <div className="App-playlist">
                         {/*SearchResults component*/}
-                        <SearchResults searchResults={this.state.searchResults}/>
+                        <SearchResults searchResults={this.state.searchResults}
+                                       onAdd={this.addTrack}/>
                         {/*Playlist component*/}
                         <Playlist playlistName={this.state.playlistName}
                                   playlistTracks={this.state.playlistTracks}/>
