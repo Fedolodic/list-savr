@@ -1,5 +1,5 @@
 const clientId = '51f40e475d1a44a2b653b3cc526750e2';
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'https://list-savr.now.sh';
 let accessToken;
 
 const Spotify = {
