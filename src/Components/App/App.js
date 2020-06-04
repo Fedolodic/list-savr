@@ -10,47 +10,9 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-            searchResults: [
-                {
-                    name: 'Baba O\'Riley',
-                    artist: 'The Who',
-                    album: 'Who\'s Next',
-                    id: 1
-                },
-                {
-                    name: 'The Less I Know The Better',
-                    artist: 'Tame Impala',
-                    album: 'Currents',
-                    id: 2
-                },
-                {
-                    name: 'Head Over Boots',
-                    artist: 'Jon Pardi',
-                    album: 'California Sunrise',
-                    id: 3
-                }
-            ],
+            searchResults: [],
             playlistName: 'Type Your New Playlist Name',
-            playlistTracks: [
-                {
-                    name: 'Runaway',
-                    artist: 'Kanye West',
-                    album: 'My Beautiful Dark Twisted Fantasy',
-                    id: 4
-                },
-                {
-                    name: 'Canon in D, P.37',
-                    artist: 'Johann Pachelbel, Orpheus Chamber Orchestra',
-                    album: 'Yellow Lounge',
-                    id: 5
-                },
-                {
-                    name: 'I Gotta Feeling',
-                    artist: 'Black Eyed Peas',
-                    album: 'THE E.N.D. (THE ENERGY NEVER DIES)',
-                    id: 6
-                }
-            ]
+            playlistTracks: []
         };
 
         this.addTrack = this.addTrack.bind(this);
@@ -89,6 +51,12 @@ export default class App extends React.Component {
 
     savePlaylist() {
         const trackURIs = this.state.playlistTracks.map(track => track.uri);
+        Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
+            this.setState({
+                playlistName: 'Type Your New Playlist Name',
+                playlistTracks: []
+            })
+        })
     }
 
     search(term) {
