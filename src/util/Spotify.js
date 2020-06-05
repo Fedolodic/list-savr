@@ -59,8 +59,7 @@ const Spotify = {
         }
         const accessToken = Spotify.getAccessToken();
         const headers = {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": 'application/json'
+            Authorization: `Bearer ${accessToken}`
         };
         let userId;
 
